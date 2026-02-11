@@ -1,0 +1,224 @@
+# Create your models here.
+# from django.db import models
+# swapping to GeoDjango
+from django.contrib.gis.db import models
+# from field_site.models import FieldSite
+from utility.models import DateTimeUserMixin, slug_date_format
+from django.core.validators import MinValueValidator
+from django.conf import settings
+from django.utils.text import slugify
+from django.utils import timezone
+from utility.enumerations import YesNo
+import datetime
+
+
+def current_year():
+    return datetime.date.today().year
+
+
+def year_choices():
+    return [(r, r) for r in range(settings.MIN_SAMPLE_YEAR, datetime.date.today().year + 1)]
+
+
+def get_unassigned_sample_type():
+    obj, created = SampleType.objects.get_or_create(sample_type_code='un',
+                                            defaults={'sample_type_label': 'Unassigned'})
+    return obj.pk
+
+
+def get_sediment_sample_type():
+    obj, created = SampleType.objects.get_or_create(sample_type_code='s',
+                                            defaults={'sample_type_label': 'Sediment'})
+    return obj.pk
+
+
+def get_water_sample_type():
+    obj, created = SampleType.objects.get_or_create(sample_type_code='w',
+                                            defaults={'sample_type_label': 'Water'})
+    return obj.pk
+
+
+# Legacy function names kept for compatibility
+def get_field_sample_sample_type():
+    # Now returns sediment by default for backward compatibility
+    return get_sediment_sample_type()
+
+
+def get_extraction_sample_type():
+    # Now returns water by default for backward compatibility
+    return get_water_sample_type()
+
+
+def get_pooled_library_sample_type():
+    # Now returns unassigned for backward compatibility
+    return get_unassigned_sample_type()
+
+
+def update_barcode_sample_type(old_barcode, sample_barcode, sample_type):
+    # update is_extracted status of FieldSample model when samples are added to
+    # Extraction model
+    if old_barcode is not None:
+        # if it is not a new barcode, update the new to is_extracted status to YES
+        # and old to is_extracted status to NO
+        new_barcode = sample_barcode.barcode_slug
+        if old_barcode != new_barcode:
+            # compare old barcode to new barcode; if they are equal then we do not need
+            # to update
+            SampleBarcode.objects.filter(barcode_slug=old_barcode).update(sample_type=get_unassigned_sample_type())
+            SampleBarcode.objects.filter(pk=sample_barcode.pk).update(sample_type=sample_type)
+    else:
+        # if it is a new barcode, update the is_extracted status to YES
+        SampleBarcode.objects.filter(pk=sample_barcode.pk).update(sample_type=sample_type)
+
+
+class SampleType(DateTimeUserMixin):
+    # ex: Extraction
+    # ws: Water Sample
+    sample_type_code = models.CharField('Sample Type Code', 
+                                        max_length=2, 
+                                        unique=True)
+    sample_type_label = models.CharField('Sample Type Label', 
+                                         max_length=255)
+
+    def __str__(self):
+        return '{code}: {label}'.format(code=self.sample_type_code, label=self.sample_type_label)
+
+    class Meta:
+        app_label = 'sample_label'
+        verbose_name = 'Sample Type'
+        verbose_name_plural = 'Sample Types'
+
+
+class SampleMaterial(DateTimeUserMixin):
+    # w: Water
+    # s: Sediment/Soil
+    sample_material_code = models.CharField('Sample Material Code', 
+                                            max_length=1, 
+                                            unique=True)
+    sample_material_label = models.CharField('Sample Material Label', 
+                                             max_length=255)
+
+    def __str__(self):
+        return '{code}: {label}'.format(code=self.sample_material_code, label=self.sample_material_label)
+
+    class Meta:
+        app_label = 'sample_label'
+        verbose_name = 'Sample Material'
+        verbose_name_plural = 'Sample Materials'
+
+
+class SampleLabelRequest(DateTimeUserMixin):
+    # With RESTRICT, if project is deleted but system and watershed still exists, it will not cascade delete
+    # unless all 3 related fields are gone.
+    site_id = models.ForeignKey('field_site.FieldSite', on_delete=models.RESTRICT)
+    sample_material = models.ForeignKey(SampleMaterial, on_delete=models.RESTRICT)
+    sample_type = models.ForeignKey(SampleType, on_delete=models.RESTRICT, default=get_unassigned_sample_type)
+    sample_year = models.PositiveIntegerField('Sample Year', default=current_year, validators=[MinValueValidator(settings.MIN_SAMPLE_YEAR)])
+    purpose = models.CharField('Sample Label Purpose', max_length=255)
+    # ePR_L01_22w or ePRR_L01_22w
+    sample_label_prefix = models.CharField('Sample Label Prefix', max_length=12)
+    req_sample_label_num = models.IntegerField('Number Requested', default=1)
+    min_sample_label_num = models.IntegerField(default=1)
+    max_sample_label_num = models.IntegerField(default=1)
+    min_sample_label_id = models.CharField('Min Sample Label ID', max_length=17)
+    max_sample_label_id = models.CharField('Max Sample Label ID', max_length=17)
+    sample_label_request_slug = models.SlugField('Sample Label Request Slug', max_length=255)
+
+    def __str__(self):
+        return self.sample_label_request_slug
+
+    def save(self, *args, **kwargs):
+        # if it already exists we don't want to change the site_id; we only want to update the associated fields.
+        if self.pk is None:
+            last_twosigits_year = str(self.sample_year)[-2:]
+            # concatenate project, watershed, and system to create sample_label_prefix, e.g., 'eAL_L'
+            self.sample_label_prefix = '{site}_{twosigits_year}{sample_material}'.format(site=self.site_id.site_id,
+                                                                                         twosigits_year=last_twosigits_year,
+                                                                                         sample_material=self.sample_material.sample_material_code)
+            # Retrieve a list of `Site` instances, group them by the sample_label_prefix and sort them by
+            # the `site_num` field and get the largest entry - Returns the next default value for the `site_num` field
+            largest = SampleLabelRequest.objects.only('sample_label_prefix', 'max_sample_label_num').filter(
+                sample_label_prefix=self.sample_label_prefix).order_by('max_sample_label_num').last()
+            if not largest:
+                # largest is `None` if `Site` has no instances
+                # in which case we return the start value of 1
+                self.min_sample_label_num = 1
+                self.max_sample_label_num = self.req_sample_label_num
+            else:
+                # If an instance of `Site` is returned, we get it's
+                # `site_num` attribute and increment it by 1
+                self.min_sample_label_num = largest.max_sample_label_num + 1
+                self.max_sample_label_num = largest.max_sample_label_num + self.req_sample_label_num
+            # add leading zeros to site_num, e.g., 1 to 01
+            min_num_leading_zeros = str(self.min_sample_label_num).zfill(4)
+            max_num_leading_zeros = str(self.max_sample_label_num).zfill(4)
+            # format site_id, e.g., 'eAL_L01'
+            self.min_sample_label_id = '{labelprefix}_{sitenum}'.format(labelprefix=self.sample_label_prefix,
+                                                                        sitenum=min_num_leading_zeros)
+            self.max_sample_label_id = '{labelprefix}_{sitenum}'.format(labelprefix=self.sample_label_prefix,
+                                                                        sitenum=max_num_leading_zeros)
+            # sample_label_request_post_save(self, self.min_sample_label_id, self.max_sample_label_id,
+            #                            self.min_sample_label_num, self.max_sample_label_num,
+            #                            self.sample_label_prefix, self.site_id,
+            #                            self.sample_material, self.sample_type,
+            #                            self.sample_year, self.purpose)
+            now_fmt = slug_date_format(timezone.now())
+            self.sample_label_request_slug = '{name}_{date}'.format(name=slugify(self.sample_label_prefix),
+                                                                    date=now_fmt)
+        # all done, time to save changes to the db
+        super(SampleLabelRequest, self).save(*args, **kwargs)
+
+    class Meta:
+        app_label = 'sample_label'
+        verbose_name = 'SampleLabelRequest'
+        verbose_name_plural = 'Sample Label Requests'
+
+
+class SampleBarcode(DateTimeUserMixin):
+    # ePR_L01_22w_0001 or ePRR_L01_22w_0001
+    sample_barcode_id = models.CharField('Sample Barcode ID', 
+                                         primary_key=True, 
+                                         max_length=255)
+    sample_label_request = models.ForeignKey(SampleLabelRequest,
+                                             null=True,
+                                             blank=True, 
+                                             on_delete=models.SET_NULL)
+    barcode_slug = models.CharField('Sample Barcode Slug', 
+                                    max_length=255)
+    in_freezer = models.CharField('In Freezer', 
+                                  max_length=3, 
+                                  choices=YesNo.choices, 
+                                  default=YesNo.NO)
+    storage_location = models.CharField('Storage Location', 
+                                        max_length=255, 
+                                        null=True, 
+                                        blank=True)
+    # With RESTRICT, if project is deleted but system and watershed still exists, it will not cascade delete
+    # unless all 3 related fields are gone.
+    site_id = models.ForeignKey('field_site.FieldSite',
+                                null=True,
+                                blank=True, 
+                                on_delete=models.SET_NULL)
+    sample_type = models.ForeignKey(SampleType,
+                                    null=True,
+                                    blank=True, 
+                                    on_delete=models.SET_NULL)
+    sample_year = models.PositiveIntegerField('Sample Year', 
+                                              default=current_year, 
+                                              validators=[MinValueValidator(settings.MIN_SAMPLE_YEAR)])
+    purpose = models.CharField('Sample Barcode Purpose',
+                               null=True,
+                               blank=True, 
+                               max_length=255)
+
+    def __str__(self):
+        return self.sample_barcode_id
+
+    def save(self, *args, **kwargs):
+        self.barcode_slug = slugify(self.sample_barcode_id)
+        super(SampleBarcode, self).save(*args, **kwargs)
+
+    class Meta:
+        app_label = 'sample_label'
+        verbose_name = 'SampleBarcode'
+        verbose_name_plural = 'Sample Barcodes'

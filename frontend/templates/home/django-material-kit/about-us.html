@@ -1,0 +1,325 @@
+{% extends "layouts/django-material-kit/base.html" %}
+{% load static %}
+
+{% block title %} About Us {% endblock %}
+
+{% block body_class %} about-us {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  {% include 'includes/django-material-kit/navigation-transparent.html' %}
+
+  <header class="bg-gradient-dark">
+    <div class="page-header min-vh-75" style="background-image: url('https://images.unsplash.com/photo-1603873046049-b4e102c85bd9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80');">
+      <span class="mask bg-gradient-dark opacity-6"></span>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mx-auto my-auto">
+            <h1 class="text-white">Maine-eDNA Metadata Team</h1>
+            <p class="lead mb-4 text-white opacity-8">An interdisciplinary effort to standardize data collection and storage for environmental DNA.</p>
+            <h6 class="text-white mb-2 mt-5">Find us on</h6>
+            <div class="d-flex justify-content-center">
+              <a href="https://www.facebook.com/MaineEPSCoR/"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
+              <a href="https://www.instagram.com/maine.epscor"><i class="fab fa-instagram text-lg text-white me-4"></i></a>
+              <a href="https://twitter.com/maineepscor"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+              <a href="https://github.com/maine-edna/medna-metadata"><i class="fa fa-github text-lg text-white me-4"></i></a>
+              <a href="https://umaine.edu/edna/"><i class="fas fa-home text-lg text-white me-4"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <!-- START about-us image & text & info -->
+    <section class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-12 my-auto">
+            <h3>About us</h3>
+            <p class="pe-md-5 mb-4">
+              The Sequencing and Bioinformatics Metadata project is funded through the Maine-eDNA RII Track-1 EPSCoR
+              grant supported by the National Science Foundation award #OIA-1849227. Maine-eDNA is a Maine coast-wide
+              research effort to determine the efficacy of ecosystem monitoring through environmental DNA (eDNA).
+              The metadata project is directly related to the goals of Theme 3: Macrosystem eDNA Integration, but also
+              involved in Theme 1: Sustainable Fisheries and Theme 2: Harmful and Shifting Species. Our efforts
+              contribute to the Data Management and Data Analysis Pipeline work groups. <br> <br>
+              The Sequencing and Bioinformatics Metadata project is a collaboration between the Coordinated Operating
+              Research Entities (CORE) environmental DNA (eDNA) Laboratory and the Data Management Team to facilitate
+              the development of a web application for the management and tracking of eDNA samples.  <br>
+              <a href="https://umaine.edu/edna/" class="text-info icon-move-right">More about Maine-eDNA
+                <i class="fas fa-arrow-right text-sm ms-1"></i>
+              </a>
+            </p>
+          </div>
+          <div class="col-md-4 col-12 my-auto">
+            <a target="_blank" href="https://github.com/Maine-eDNA/medna-metadata">
+              <img class="w-100 border-radius-lg shadow-lg" src="{% static 'assets/img/logo-medna-metadata.png' %}" alt="medna-metadata logo">
+            </a>
+          </div>
+          </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-6 mx-auto">
+            <div class="text-center">
+              <h3 class="mt-5 mb-4">This project was supported by</h3>
+              <div class="row justify-content-center">
+                <div class="col-lg-2 col-4">
+                  <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1849227" target="_blank">
+                    <img src="{% static 'assets/img/logos/logo-nsf.png' %}" class="img-fluid" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The National Science Foundation award #OIA-1849227">
+                  </a>
+                </div>
+                <div class="col-lg-2 col-4">
+                  <a href="https://umaine.edu/epscor/">
+                    <img src="{% static 'assets/img/logos/logo-maine-epscor.jpg' %}" class="img-fluid" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Maine's Established Program to Stimulate Competitive Research (EPSCoR)">
+                  </a>
+                </div>
+                <div class="col-lg-2 col-4">
+                  <a href="https://umaine.edu/edna/">
+                    <img src="{% static 'assets/img/logos/logo-medna-regular-lg.png' %}" class="img-fluid" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Maine-eDNA - Sustaining Coastal Ecosystems in Maine and Beyond">
+                  </a>
+                </div>
+                <div class="col-lg-2 col-4">
+                  <a href="https://umaine.edu/">
+                    <img src="{% static 'assets/img/logos/logo-umaine-crest-4c.png' %}" class="img-fluid" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The University of Maine">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END about-us image & text & info -->
+
+    <!-- -------- START Features w/ pattern background & stats & rocket -------- -->
+    <section class="pb-5 position-relative bg-gradient-dark mx-n3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-start mb-5 mt-5">
+            <h3 class="text-white z-index-1 position-relative">The Metadata Team</h3>
+            <p class="text-white opacity-8 mb-0">Insight into environmental DNA metadata was an effort that received
+              input from multiple collaborators across and outside of the grant. The metadata team were the effort behind
+              compiling, modeling, and implementing Maine-eDNA Metadata.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://www.linkedin.com/in/melissa-kimble/">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="{% static 'assets/img/melissa-sq.jpg' %}" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Melissa Kimble</h5>
+                    <h6 class="text-info">Data Engineer, Graduate Student, University of Maine</h6>
+                    <p class="mb-0">Interdisciplinary work on spatial data science and engineering, particularly on
+                      integration of spatiotemporal data and uncertainty characterization.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-lg-4 mt-5">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://umaine.edu/scis/people/kate-beard-tisdale/">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="https://umaine.edu/scis/wp-content/uploads/sites/507/2019/09/Beard-Tisdale-2.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Dr. Kate Beard-Tisdale</h5>
+                    <h6 class="text-info">Professor of Spatial Computing, University of Maine</h6>
+                    <p class="mb-0">Modeling, analysis and visualization of spatio-temporal phenomena.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://umaine.edu/biomed/home/faculty/benjamin-king/">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="https://umaine.edu/biomed/wp-content/uploads/sites/282/2018/05/King-Benjamin2-1-201x300.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Dr. Benjamin King</h5>
+                    <h6 class="text-info">Assistant Professor of Bioinformatics, University of Maine</h6>
+                    <p class="mb-0">Utilizing genomic and computational approaches to understand the mechanisms of stress
+                      responses.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-lg-4 mt-5 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://www.linkedin.com/in/laura-m-jackson">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="{% static 'assets/img/laura-rect.jpg' %}" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Dr. Laura Jackson</h5>
+                    <h6 class="text-info">Integrative Data Scientist, University of Maine</h6>
+                    <p class="mb-0">Large-scale computation approaches to understand trait evolution in fishes with a
+                      focus on questions at the intersection of evolutionary and developmental biology.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://umaine.edu/scis/people/chaofan-chen/">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="https://umaine.edu/scis/wp-content/uploads/sites/507/2020/10/chaofanchen-423x529.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Dr. Chaofan Chen</h5>
+                    <h6 class="text-info">Assistant Professor of Computer Science, University of Maine</h6>
+                    <p class="mb-0">Techniques to enhance the interpretability and transparency of
+                      machine learning models, especially deep learning models.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-lg-4 mt-5 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://umaine.edu/marine/people/geneva-york/">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="{% static 'assets/img/geneva-sq.jpg' %}" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Geneva York</h5>
+                    <h6 class="text-info">Environmental DNA Specialist, eDNA Laboratory, University of Maine</h6>
+                    <p class="mb-0">Using environmental DNA to detect invasive species in Maine waters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://www.linkedin.com/in/samantha-silverbrand-538b1a172">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="https://sbe.umaine.edu/wp-content/uploads/sites/92/2020/08/Silverbrand-423x414.jpeg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Samantha Silverbrand</h5>
+                    <h6 class="text-info">Fish Biologist, U.S. Fish and Wildlife</h6>
+                    <p class="mb-0">eDNA, genetics, and marine biology.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-lg-4 mt-5 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="https://www.linkedin.com/in/keijaoh-campbell">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="{% static 'assets/img/keijaoh-sq.jpg' %}" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Keijaoh Campbell</h5>
+                    <h6 class="text-info">Computer Technician II, University of Maine</h6>
+                    <p class="mb-0">Applying machine learning techniques to detect and identify objects on mobile platforms.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="https://raw.githubusercontent.com/google/material-design-icons/master/png/social/sentiment_satisfied/materialiconsoutlined/48dp/2x/outline_sentiment_satisfied_black_48dp.png" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Steven Allers</h5>
+                    <h6 class="text-info">Graduate Student, University of Maine</h6>
+                    <p class="mb-0">Bioinformatics, networks, and artificial intelligence.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+  <script>
+    if (document.getElementsByClassName('page-header')) {
+      window.onscroll = debounce(function() {
+        var scrollPosition = window.pageYOffset;
+        var bgParallax = document.querySelector('.page-header');
+        var oVal = (window.scrollY / 3);
+        bgParallax.style.transform = 'translate3d(0,' + oVal + 'px,0)';
+      }, 6);
+    }
+  </script>
+
+{% endblock javascripts %}

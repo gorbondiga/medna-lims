@@ -1,0 +1,133 @@
+services:
+ # docker-compose up -d
+ # ----------------------------------------
+ # MEDNA-METADATA
+ # ----------------------------------------
+  medna_metadata_web:
+    restart: always
+    image: medna:0.0.2
+      #build:
+      #  context: '../'
+      #  dockerfile: 'docker/web/Dockerfile'
+    container_name: medna_metadata_web
+      #command: /home/django/medna-metadata/docker/web/webdev_start.sh
+    ports:
+      - 8000:8000
+    env_file:
+      - 'medna.env'
+    volumes:
+      - 'static_volume:/home/django/medna-metadata/static/'
+        #      - '/root/medna-azti:/home/django/medna-metadata'
+    depends_on:
+      - medna_metadata_pgdb
+  # ----------------------------------------
+  # MEDNA-METADATA-POSTGIS
+  # command: update-postgis.sh
+  # ----------------------------------------
+  medna_metadata_pgdb:
+    restart: always
+    image: postgis/postgis:12-master
+    container_name: medna_metadata_pgdb
+    ports:
+      - 5432:5432     # expose ports - HOST:CONTAINER
+    env_file:
+      - 'medna.env.db'
+    volumes:
+      - 'postgres_data:/var/lib/postgresql/data/'
+ # ----------------------------------------
+ # MEDNA-METADATA-RABBITMQ
+ # ----------------------------------------
+  # medna_metadata_rabbitmq:
+  #   restart: always
+  #   image: rabbitmq:3.8.29-management
+  #   container_name: medna_metadata_rabbitmq
+  #   ports:
+  #     - 5672:5672
+  #     - 15672:15672
+  #   env_file:
+  #     - 'medna.env'
+  #   volumes:
+  #     - 'rabbitmq_data:/var/lib/rabbitmq/'
+  #     - 'rabbitmq_logs:/var/log/rabbitmq/'
+ # ----------------------------------------
+ # MEDNA-METADATA-CELERYWORKER
+ # ----------------------------------------
+#   medna_metadata_celeryworker:
+#     restart: always
+#     build:
+#       context: '../'
+#       dockerfile: 'docker/web/Dockerfile'
+#     container_name: medna_metadata_celeryworker
+#     command: /home/django/celeryworker_start.sh
+#     env_file:
+#       - 'medna.env'
+#     volumes:
+#       - '../:/home/django/medna-metadata/'
+#       - 'static_volume:/home/django/medna-metadata/static/'
+#     depends_on:
+#       - medna_metadata_pgdb
+#       - medna_metadata_rabbitmq
+#       - medna_metadata_web
+#  # ----------------------------------------
+#  # MEDNA-METADATA-CELERYBEAT
+#  # ----------------------------------------
+#   medna_metadata_celerybeat:
+#     restart: always
+#     build:
+#       context: '../'
+#       dockerfile: 'docker/web/Dockerfile'
+#     container_name: medna_metadata_celerybeat
+#     command: /home/django/celerybeat_start.sh
+#     env_file:
+#       - 'medna.env'
+#     volumes:
+#       - '../:/home/django/medna-metadata/'
+#     depends_on:
+#       - medna_metadata_pgdb
+#       - medna_metadata_rabbitmq
+#       - medna_metadata_web
+#       - medna_metadata_celeryworker
+ # ----------------------------------------
+ # NGINX
+ # ----------------------------------------
+  nginx:
+    restart: always
+    image: nginx:1.21-alpine
+    container_name: nginx
+    ports:
+      - 80:80   # expose ports - HOST:CONTAINER
+      - 443:443 # HTTPS port
+    env_file:
+      - 'medna.env'
+    volumes:
+      - 'static_volume:/home/django/medna-metadata/static/'
+      - 'media_volume:/home/django/medna-metadata/media/'
+      - './nginx/default.conf:/etc/nginx/conf.d/default.conf'
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      # - 'certbot_etc:/etc/letsencrypt'
+      # - 'certbot_var:/var/lib/letsencrypt'
+    depends_on:
+      - medna_metadata_web
+  # ----------------------------------------
+  # CERTBOT - SSL Certificate Management
+  # ----------------------------------------
+  # certbot:
+  #   image: certbot/certbot:latest
+  #   container_name: certbot
+  #   env_file:
+  #     - 'medna.env'
+  #   volumes:
+  #     - 'certbot_etc:/etc/letsencrypt'
+  #     - 'certbot_var:/var/lib/letsencrypt'  
+  #     - './certbot/www:/var/www/certbot'
+  #   entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot; sleep 12h & wait $${!}; done;'"
+  #   depends_on:
+  #     - nginx
+volumes:
+  postgres_data:
+  rabbitmq_data:
+  rabbitmq_logs:
+  static_volume:
+  media_volume:
+  # certbot_etc:
+  # certbot_var:

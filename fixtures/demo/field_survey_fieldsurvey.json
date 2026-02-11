@@ -1,0 +1,116 @@
+[
+    {
+        "model": "field_survey.fieldsurvey",
+        "pk": "5b8d9b69-3287-4e82-b5b0-a083e99a1450",
+        "fields": {
+            "created_by": 1,
+            "username": 1,
+            "supervisor": 1,
+            "recorder_fname": "John",
+            "recorder_lname": "Bucci",
+            "site_id": 1,
+            "env_measure_mode": "on_boat",
+            "survey_complete": "yes",
+            "gps_alt": null,
+            "geom": "SRID=4326;POINT (-70.482778 42.538889)",
+            "project_ids": [
+                15
+            ]
+        }
+    },
+    {
+        "model": "field_survey.fieldsurvey",
+        "pk": "6952890c-9459-43d9-81aa-1f1206592a49",
+        "fields": {
+            "created_by": 1,
+            "username": 1,
+            "supervisor": 1,
+            "recorder_fname": "John",
+            "recorder_lname": "Bucci",
+            "site_id": 1,
+            "env_measure_mode": "on_boat",
+            "survey_complete": "yes",
+            "gps_alt": null,
+            "geom": "SRID=4326;POINT (-70.48944400000001 42.570278)",
+            "project_ids": [
+                15
+            ]
+        }
+    },
+    {
+        "model": "field_survey.fieldsurvey",
+        "pk": "8862cb33-9a70-4d80-a254-e0f477f2a72f",
+        "fields": {
+            "created_by": 1,
+            "username": 1,
+            "supervisor": 1,
+            "recorder_fname": "John",
+            "recorder_lname": "Bucci",
+            "site_id": 1,
+            "env_measure_mode": "on_boat",
+            "survey_complete": "yes",
+            "gps_alt": null,
+            "geom": "SRID=4326;POINT (-70.482778 42.538889)",
+            "project_ids": [
+                15
+            ]
+        }
+    },
+    {
+        "model": "field_survey.fieldsurvey",
+        "pk": "934bbd3d-4381-4bb3-b304-9d93144dac6c",
+        "fields": {
+            "created_by": 1,
+            "username": 1,
+            "supervisor": 1,
+            "recorder_fname": "John",
+            "recorder_lname": "Bucci",
+            "site_id": 1,
+            "env_measure_mode": "on_boat",
+            "survey_complete": "yes",
+            "gps_alt": null,
+            "geom": "SRID=4326;POINT (-70.491111 42.555833)",
+            "project_ids": [
+                15
+            ]
+        }
+    },
+    {
+        "model": "field_survey.fieldsurvey",
+        "pk": "cd44649d-2ad5-46c1-b8bb-76f0224442ac",
+        "fields": {
+            "created_by": 1,
+            "username": 1,
+            "supervisor": 1,
+            "recorder_fname": "John",
+            "recorder_lname": "Bucci",
+            "site_id": 1,
+            "env_measure_mode": "on_boat",
+            "survey_complete": "yes",
+            "gps_alt": null,
+            "geom": "SRID=4326;POINT (-70.491111 42.555833)",
+            "project_ids": [
+                15
+            ]
+        }
+    },
+    {
+        "model": "field_survey.fieldsurvey",
+        "pk": "fbdb3dd9-0b45-4ffc-9373-3ba9494ec9bf",
+        "fields": {
+            "created_by": 1,
+            "username": 1,
+            "supervisor": 1,
+            "recorder_fname": "John",
+            "recorder_lname": "Bucci",
+            "site_id": 1,
+            "env_measure_mode": "on_boat",
+            "survey_complete": "yes",
+            "gps_alt": null,
+            "geom": "SRID=4326;POINT (-70.48944400000001 42.570278)",
+            "project_ids": [
+                15
+            ]
+        }
+    }
+]

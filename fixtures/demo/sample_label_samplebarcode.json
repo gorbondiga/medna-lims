@@ -1,0 +1,386 @@
+[
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0001",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0002",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0003",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0004",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0005",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0006",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0007",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0008",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0009",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0010",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0011",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0012",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0013",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0014",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0015",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0016",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0017",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0018",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0019",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0020",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0021",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0022",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0023",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0024",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0025",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0026",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0027",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0028",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22s_0029",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "eOT_O01_22w_0001",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P01_16s_0001",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P01_16s_0002",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P01_16s_0003",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P01_16s_0004",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P01_16s_0005",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P01_16s_0006",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P02_16s_0001",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P02_16s_0002",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P02_16s_0003",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P02_16s_0004",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P02_16s_0005",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P02_16s_0006",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P03_16s_0001",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P03_16s_0002",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P03_16s_0003",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P03_16s_0004",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P03_16s_0005",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    },
+    {
+        "model": "sample_label.samplebarcode",
+        "pk": "gGOM_P03_16s_0006",
+        "fields": {
+            "in_freezer": "no",
+            "purpose": "test"
+        }
+    }
+]

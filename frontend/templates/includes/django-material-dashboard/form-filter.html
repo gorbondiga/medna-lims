@@ -1,0 +1,39 @@
+{% load html_tags %}
+
+{% block extrahead %} {{ filter.form.media }} {% endblock %}
+<!-- START FORM ERRORS -->
+{% if filter.form.non_field_errors %}
+<div class="alert alert-secondary text-white font-weight-bold" role="alert">{{ filter.form.non_field_errors }}</div>
+{% endif %}
+<!-- END FORM ERRORS -->
+<!-- START FORM -->
+<form action="" method="get" id="changelist-form" class="p-3">
+  {% csrf_token %}
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <button type="submit" value="Submit" class="btn bg-gradient-light w-100">
+                <i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+        </div>
+    </div>
+    <hr class="horizontal light my-1">
+    <div class="row">
+        {% for field in filter.form %}
+        <div class="col-md-12">
+            {{ field.errors }}
+            <div>
+                <h6 class="mb-0"><label class="text-white text-capitalize" for="{{ field.auto_id }}">{{ field.label }}</label></h6>
+            </div>
+            <div class="{% if field.field.widget|field_type == 'CustomRadioSelect' %}form-check form-check-inline{% else %}input-group input-group-outline my-3{% endif %}">
+                {{ field }}
+            </div>
+            {% if field.help_text %}
+            <div class="row">
+                <p class="help">{{ field.help_text|safe }}</p>
+            </div>
+            {% endif %}
+        </div>
+        <hr class="horizontal light my-1">
+        {% endfor %}
+    </div>
+</form>
+<!-- END FORM -->

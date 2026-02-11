@@ -1,0 +1,332 @@
+[
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000001",
+            "env_measure_value": "3.5",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000002",
+            "env_measure_value": "12.5",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000004",
+            "env_measure_value": "32.1",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000005",
+            "env_measure_value": "8.1",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000007",
+            "env_measure_value": "8.2",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:32:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000001",
+            "env_measure_value": "5.2",
+            "survey_global_id": "6952890c-9459-43d9-81aa-1f1206592a49"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:32:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000002",
+            "env_measure_value": "14.2",
+            "survey_global_id": "6952890c-9459-43d9-81aa-1f1206592a49"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:32:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000004",
+            "env_measure_value": "31.8",
+            "survey_global_id": "6952890c-9459-43d9-81aa-1f1206592a49"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:32:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000005",
+            "env_measure_value": "8.0",
+            "survey_global_id": "6952890c-9459-43d9-81aa-1f1206592a49"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:32:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000007",
+            "env_measure_value": "9.1",
+            "survey_global_id": "6952890c-9459-43d9-81aa-1f1206592a49"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:35:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000001",
+            "env_measure_value": "4.1",
+            "survey_global_id": "8862cb33-9a70-4d80-a254-e0f477f2a72f"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:35:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000002",
+            "env_measure_value": "13.8",
+            "survey_global_id": "8862cb33-9a70-4d80-a254-e0f477f2a72f"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:35:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000004",
+            "env_measure_value": "32.3",
+            "survey_global_id": "8862cb33-9a70-4d80-a254-e0f477f2a72f"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:35:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000005",
+            "env_measure_value": "8.2",
+            "survey_global_id": "8862cb33-9a70-4d80-a254-e0f477f2a72f"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:35:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000007",
+            "env_measure_value": "8.5",
+            "survey_global_id": "8862cb33-9a70-4d80-a254-e0f477f2a72f"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:25:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000001",
+            "env_measure_value": "2.8",
+            "survey_global_id": "934bbd3d-4381-4bb3-b304-9d93144dac6c"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:25:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000002",
+            "env_measure_value": "18.3",
+            "survey_global_id": "934bbd3d-4381-4bb3-b304-9d93144dac6c"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:25:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000004",
+            "env_measure_value": "30.5",
+            "survey_global_id": "934bbd3d-4381-4bb3-b304-9d93144dac6c"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:25:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000005",
+            "env_measure_value": "7.9",
+            "survey_global_id": "934bbd3d-4381-4bb3-b304-9d93144dac6c"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:25:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000007",
+            "env_measure_value": "7.8",
+            "survey_global_id": "934bbd3d-4381-4bb3-b304-9d93144dac6c"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:33:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000001",
+            "env_measure_value": "4.7",
+            "survey_global_id": "cd44649d-2ad5-46c1-b8bb-76f0224442ac"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:33:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000002",
+            "env_measure_value": "13.5",
+            "survey_global_id": "cd44649d-2ad5-46c1-b8bb-76f0224442ac"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:33:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000004",
+            "env_measure_value": "31.9",
+            "survey_global_id": "cd44649d-2ad5-46c1-b8bb-76f0224442ac"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:33:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000005",
+            "env_measure_value": "8.1",
+            "survey_global_id": "cd44649d-2ad5-46c1-b8bb-76f0224442ac"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-10-01T13:33:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000007",
+            "env_measure_value": "8.9",
+            "survey_global_id": "cd44649d-2ad5-46c1-b8bb-76f0224442ac"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:23:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000001",
+            "env_measure_value": "3.2",
+            "survey_global_id": "fbdb3dd9-0b45-4ffc-9373-3ba9494ec9bf"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:23:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000002",
+            "env_measure_value": "19.1",
+            "survey_global_id": "fbdb3dd9-0b45-4ffc-9373-3ba9494ec9bf"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:23:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000004",
+            "env_measure_value": "30.2",
+            "survey_global_id": "fbdb3dd9-0b45-4ffc-9373-3ba9494ec9bf"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:23:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000005",
+            "env_measure_value": "8.0",
+            "survey_global_id": "fbdb3dd9-0b45-4ffc-9373-3ba9494ec9bf"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:23:00Z",
+            "env_instrument": "ysi_proplus",
+            "env_measure_type": "00000000-0000-0000-0000-000000000007",
+            "env_measure_value": "7.5",
+            "survey_global_id": "fbdb3dd9-0b45-4ffc-9373-3ba9494ec9bf"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "",
+            "env_measure_type": "00000000-0000-0000-0000-000000000008",
+            "env_measure_value": "2.5",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2025-11-01T13:30:00Z",
+            "env_instrument": "",
+            "env_measure_type": "00000000-0000-0000-0000-000000000009",
+            "env_measure_value": "4.8",
+            "survey_global_id": "5b8d9b69-3287-4e82-b5b0-a083e99a1450"
+        }
+    },
+    {
+        "model": "field_survey.envmeasure",
+        "fields": {
+            "env_measure_datetime": "2016-07-01T13:25:00Z",
+            "env_instrument": "",
+            "env_measure_type": "00000000-0000-0000-0000-000000000006",
+            "env_measure_value": "3.2",
+            "survey_global_id": "934bbd3d-4381-4bb3-b304-9d93144dac6c"
+        }
+    }
+]

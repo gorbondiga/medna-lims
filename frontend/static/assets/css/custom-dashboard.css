@@ -1,0 +1,40 @@
+/*
+    enter custom dashboard css here
+*/
+
+/* Import Form Styles */
+.upload-area {
+    border: 2px dashed #d2d6da;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.upload-area.dragover {
+    border-color: #e91e63;
+    background-color: #fce4ec;
+}
+
+.upload-area:hover {
+    border-color: #adb5bd;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-icon {
+    font-size: 48px;
+    color: #6c757d;
+    margin-bottom: 16px;
+}
+
+.format-info {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 16px;
+    margin-top: 24px;
+    border-radius: 4px;
+}

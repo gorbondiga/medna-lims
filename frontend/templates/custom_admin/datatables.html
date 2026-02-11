@@ -1,0 +1,27 @@
+{% load static %}
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"/>
+
+<!-- jQuery (only include once, before DataTables JS) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#result_list').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'csv', 'excel', 'pdf'
+            ],
+            pageLength: 25,
+            order: [[0, 'desc']],
+            searching: true,
+            columnDefs: [
+                { searchable: true, targets: '_all' }
+            ]
+        });
+    });
+</script>

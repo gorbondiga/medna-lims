@@ -1,0 +1,159 @@
+{% extends "home/django-material-dashboard/model-add.html" %}
+{% load static leaflet_tags %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% block extrahead %}
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+    <script src="{% static 'assets/js/plugins/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/leaflet-providers.js' %}"></script>
+    <script src="{% static 'assets/js/field_site/field-site-add-req.js' %}"></script>
+    <script src="{% static 'assets/js/field_site/field-site-add-readonly.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/leaflet-pip.js' %}"></script>
+{% endblock extrahead %}
+
+{% block messages %}
+<div class="card card-body mx-3 mb-4">
+    <h3>Create New Field Site</h3>
+    <div class="row">
+         <p class="pe-md-5 mb-4">
+            The following Web Map and Form are to create a unique Site ID.
+            A use case for a Unique Site ID is when a location is revisited to collect material samples at some regular interval.
+        </p>
+    </div>
+    <div class="row">
+        <p class="pe-md-5 mb-4">
+            While using the Sites Web Map, if it is observed that there is already a Site at the desired sampling location, please re-use that Site ID.
+            Future analyses and aggregations will be made much simpler by using an identifier that denotes a common location.
+        </p>
+    </div>
+    <div class="row">
+        <h3>Naming Convention for Site IDs</h3>
+        <div class="col-md-6 col-12 my-auto">
+            <h5>pRR_SCC or pRRR_SCC</h5>
+            <table class="table align-items-center mb-0">
+                <caption style="text-align:start; caption-side:top;">Where:</caption>
+                <tbody>
+                    <tr>
+                      <td class="align-middle text-center">
+                        <div class="d-flex align-items-center">
+                          <span class="me-2 text-xs">p</span>
+                        </div>
+                      </td>
+                        <td class="align-middle text-center">
+                        <div class="d-flex align-items-center">
+                          <span class="me-2 text-xs">Fund or project code</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="align-middle text-center">
+                        <div class="d-flex align-items-center">
+                          <span class="me-2 text-xs">RR or RRR</span>
+                        </div>
+                      </td>
+                        <td class="align-middle text-center">
+                        <div class="d-flex align-items-center">
+                          <span class="me-2 text-xs">Watershed region code</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="align-middle text-center">
+                        <div class="d-flex align-items-center">
+                          <span class="me-2 text-xs">CC</span>
+                        </div>
+                      </td>
+                        <td class="align-middle text-center">
+                        <div class="d-flex align-items-center">
+                          <span class="me-2 text-xs">Two digit sequence, or number</span>
+                        </div>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 col-12 my-auto">
+            <img class="w-100 border-radius-lg shadow-lg" src="{% static 'assets/img/naming-convention-field-site.png' %}" alt="field site naming convention">
+            <img class="w-100 border-radius-lg shadow-lg" src="{% static 'assets/img/naming-convention-field-site_v2.png' %}" alt="field site naming convention">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-12 my-auto">
+            <h3>Watershed Boundary Dataset</h3>
+                <p class="pe-md-5 mb-4">
+                    The regions used to define unique Site IDs were derived from the United States Geological Survey (USGS) Watershed
+                    Boundary Dataset (WBD) hydrologic unit code 8 (HUC8). These watersheds were simplified with the
+                    Douglas-Peucker algorithm at a tolerance of 100 meters. For more information on the WBD, please visit the
+                    <a target="_blank" href="https://www.usgs.gov/core-science-systems/ngp/national-hydrography/watershed-boundary-dataset?qt-science_support_page_related_con=4#qt-science_support_page_related_con">USGS WBD website</a>.
+                    Basing naming conventions on hydrologic units were adopted from the
+                    <a target="_blank" href="https://doi.org/10.2737/RDS-2018-0010">U.S. Forest Service eDNAtlas database</a>.
+                </p>
+            <figure>
+                <blockquote class="blockquote">
+                    <p class="ps-2">
+                        "The Watershed Boundary Dataset (WBD) is a seamless, national hydrologic unit dataset. Simply put,
+                        hydrologic units represent the area of the landscape that drains to a portion of the stream network.
+                        More specifically, a hydrologic unit defines the areal extent of surface water drainage to an outlet
+                        point on a dendritic stream network or to multiple outlet points where the stream network is not
+                        dendritic. A hydrologic unit may represent all or only part of the total drainage area to an outlet
+                        point so that multiple hydrologic units may be required to define the entire drainage area at a given
+                        outlet. Hydrologic unit boundaries in the WBD are determined based on topographic, hydrologic, and other
+                        relevant landscape characteristics without regard for administrative, political, or jurisdictional
+                        boundaries. The WBD seamlessly represents hydrologic units at six required and two optional hierarchical
+                        levels."
+                    </p>
+                </blockquote>
+                <figcaption class="blockquote-footer ps-3">Described in the <cite title="USGS Watershed Boundary Dataset Website">USGS Watershed Boundary Dataset Website</cite></figcaption>
+                <a target="_blank" href="https://www.usgs.gov/core-science-systems/ngp/national-hydrography/watershed-boundary-dataset?qt-science_support_page_related_con=4#qt-science_support_page_related_con" class="text-info icon-move-right">More about the Water Boundary Dataset (WBD)
+                    <i class="fas fa-arrow-right text-sm ms-1"></i>
+                </a>
+            </figure>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-12 col-12 my-auto">
+            <h3>Natural Earth Marine Areas</h3>
+                <p class="pe-md-5 mb-4">
+                    The regions used to define unique Site IDs that extend beyond the USGS Water Boundary Dataset were
+                    derived from Natural Earth's Marine Areas. For more information, please visit the
+                    <a target="_blank" href="https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-physical-labels/">Natural Earth website</a>.
+                </p>
+            <figure>
+                <blockquote class="blockquote">
+                    <p class="ps-2">
+                        "Primarily derived from Patterson’s Physical Map of the World. Polygons defined by international
+                        team of volunteers. Marine Regions is a standard list of marine georeferenced place names and
+                        areas. It integrates and serves geographic information from the VLIMAR Gazetteer and the MARBOUND
+                        database and proposes a standard of marine georeferenced locations, boundaries and regions.
+                        25,371 marine georeferenced places, 32,484 marine place names, 5,595 polygons of geographic places,
+                        12 marine geographic regional/global classifications, Maritime Boundaries (EEZ) of the world"
+                    </p>
+                </blockquote>
+                <figcaption class="blockquote-footer ps-3">Described in the <cite title="Natural Earth Physical Labels">Natural Earth Website</cite></figcaption>
+                <a target="_blank" href="https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-physical-labels/" class="text-info icon-move-right">More about Natural Earth Physical Labels
+                    <i class="fas fa-arrow-right text-sm ms-1"></i>
+                </a>
+            </figure>
+        </div>
+    </div>
+</div>
+<div id="url_envo_biome_second" data-url="{% url 'options_biome_second' %}" style="display: none;"></div>
+<div id="url_envo_biome_third" data-url="{% url 'options_biome_third' %}" style="display: none;"></div>
+<div id="url_envo_biome_fourth" data-url="{% url 'options_biome_fourth' %}" style="display: none;"></div>
+<div id="url_envo_biome_fifth" data-url="{% url 'options_biome_fifth' %}" style="display: none;"></div>
+<div id="url_envo_feature_second" data-url="{% url 'options_feature_second' %}" style="display: none;"></div>
+<div id="url_envo_feature_third" data-url="{% url 'options_feature_third' %}" style="display: none;"></div>
+<div id="url_envo_feature_fourth" data-url="{% url 'options_feature_fourth' %}" style="display: none;"></div>
+<div id="url_envo_feature_fifth" data-url="{% url 'options_feature_fifth' %}" style="display: none;"></div>
+<div id="url_envo_feature_sixth" data-url="{% url 'options_feature_sixth' %}" style="display: none;"></div>
+<div id="url_envo_feature_seventh" data-url="{% url 'options_feature_seventh' %}" style="display: none;"></div>
+<div id="url_project" data-url="{% url 'options_project' %}" style="display: none;"></div>
+{% endblock %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script src="{% static 'assets/js/options-conditional.js' %}"></script>
+    <script src="{% static 'assets/js/field_site/fieldsite-add-options-conditional.js' %}"></script>
+{% endblock javascripts %}

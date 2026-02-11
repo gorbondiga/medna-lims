@@ -1,0 +1,18 @@
+[
+    {
+        "model": "sample_label.sampletype",
+        "pk": 1,
+        "fields": {
+            "sample_type_code": "s",
+            "sample_type_label": "Sediment"
+        }
+    },
+    {
+        "model": "sample_label.sampletype",
+        "pk": 2,
+        "fields": {
+            "sample_type_code": "w",
+            "sample_type_label": "Water"
+        }
+    }
+]

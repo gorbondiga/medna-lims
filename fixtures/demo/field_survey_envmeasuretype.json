@@ -1,0 +1,200 @@
+[
+    {
+        "model": "field_survey.envmeasuretype",
+        "pk": "00000000-0000-0000-0000-000000000001",
+        "fields": {
+            "env_measure_type_code": "depth",
+            "env_measure_type_unit": "m",
+            "env_measure_type_name": "Depth"
+        }
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "pk": "00000000-0000-0000-0000-000000000002",
+        "fields": {
+            "env_measure_type_code": "water_temp",
+            "env_measure_type_unit": "°C",
+            "env_measure_type_name": "water_temperature"
+        }
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "pk": "00000000-0000-0000-0000-000000000003",
+        "fields": {
+            "env_measure_type_code": "air_temp",
+            "env_measure_type_unit": "°C",
+            "env_measure_type_name": "Temperature"
+        }
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "pk": "00000000-0000-0000-0000-000000000004",
+        "fields": {
+            "env_measure_type_code": "salinity",
+            "env_measure_type_unit": "PSU",
+            "env_measure_type_name": "Salinity"
+        }
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "pk": "00000000-0000-0000-0000-000000000005",
+        "fields": {
+            "env_measure_type_code": "ph",
+            "env_measure_type_unit": "pH",
+            "env_measure_type_name": "pH"
+        }
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "pk": "00000000-0000-0000-0000-000000000006",
+        "fields": {
+            "env_measure_type_code": "water_turbidity",
+            "env_measure_type_unit": "FNU",
+            "env_measure_type_name": "Turbidity"
+        }
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "do",
+            "env_measure_type_unit": "mg/L",
+            "env_measure_type_name": "Dissolved Oxygen"
+        },
+        "pk": "00000000-0000-0000-0000-000000000007"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "pheophytin",
+            "env_measure_type_unit": "µg/L",
+            "env_measure_type_name": "Pheophytin"
+        },
+        "pk": "00000000-0000-0000-0000-000000000008"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "chla",
+            "env_measure_type_unit": "µg/L",
+            "env_measure_type_name": "Chlorophyll-a"
+        },
+        "pk": "00000000-0000-0000-0000-000000000009"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "no3no2",
+            "env_measure_type_unit": "µM",
+            "env_measure_type_name": "nitrate_nitrite"
+        },
+        "pk": "00000000-0000-0000-0000-000000000010"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "no2",
+            "env_measure_type_unit": "µM",
+            "env_measure_type_name": "Nitrite"
+        },
+        "pk": "00000000-0000-0000-0000-000000000011"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "nh4",
+            "env_measure_type_unit": "µM",
+            "env_measure_type_name": "Ammonium"
+        },
+        "pk": "00000000-0000-0000-0000-000000000012"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "phosphate",
+            "env_measure_type_unit": "µM",
+            "env_measure_type_name": "Phosphate"
+        },
+        "pk": "00000000-0000-0000-0000-000000000013"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Cu",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Copper"
+        },
+        "pk": "00000000-0000-0000-0000-000000000014"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Pb",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Lead"
+        },
+        "pk": "00000000-0000-0000-0000-000000000015"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Ni",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Nickel"
+        },
+        "pk": "00000000-0000-0000-0000-000000000016"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Cr",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Chromium"
+        },
+        "pk": "00000000-0000-0000-0000-000000000017"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Zn",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Zinc"
+        },
+        "pk": "00000000-0000-0000-0000-000000000018"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Mn",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Manganese"
+        },
+        "pk": "00000000-0000-0000-0000-000000000019"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Fe",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Iron"
+        },
+        "pk": "00000000-0000-0000-0000-000000000020"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Hg",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Mercury"
+        },
+        "pk": "00000000-0000-0000-0000-000000000021"
+    },
+    {
+        "model": "field_survey.envmeasuretype",
+        "fields": {
+            "env_measure_type_code": "Cd",
+            "env_measure_type_unit": "ppm",
+            "env_measure_type_name": "Cadmium"
+        },
+        "pk": "00000000-0000-0000-0000-000000000022"
+    }
+]
