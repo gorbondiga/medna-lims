@@ -10,4 +10,4 @@ Kimble, M., Allers, S., Campbell, K., Chen, C., Jackson, L. M., King, B. L., Sil
 **medna-metadata: An open-source data management system for tracking environmental DNA samples and metadata.** *Bioinformatics*, btac556.
 https://doi.org/10.1093/bioinformatics/btac556
 
-This repository was built from the medna-metadata [!repository](https://github.com/melkimble/medna-metadata).
+This repository was built from the medna-metadata [repository](https://github.com/melkimble/medna-metadata).
