@@ -91,7 +91,7 @@ jobs:
             DJANGO_SUPERUSER_PASSWORD=$DJANGO_PASS
             DJANGO_SUPERUSER_USERNAME=$DJANGO_USER
             DJANGO_SUPERUSER_EMAIL=$DJANGO_EMAIL
-
+            EOF
 
             # 3. Pull images using the version variable
             docker compose -f docker-compose.yml pull
