@@ -69,12 +69,13 @@ jobs:
           DJANGO_USER: ${{ secrets.DJANGO_USER }}
           DJANGO_PASS: ${{ secrets.DJANGO_PASS }}
           DJANGO_EMAIL: ${{ secrets.DJANGO_EMAIL }}
+          DJANGO_KEY: ${{ secrets.DJANGO_KEY }}
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          envs: APP_VERSION,APPTOKEN,REPO_NAME,USERNAME,POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB,DJANGO_USER,DJANGO_PASS,DJANGO_EMAIL
+          envs: APP_VERSION,APPTOKEN,REPO_NAME,USERNAME,POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB,DJANGO_USER,DJANGO_PASS,DJANGO_EMAIL,DJANGO_KEY
           script: |
             # 1. Login to GHCR
             echo $APPTOKEN | docker login ghcr.io -u $USERNAME --password-stdin
@@ -97,6 +98,7 @@ jobs:
             DJANGO_SUPERUSER_PASSWORD=$DJANGO_PASS
             DJANGO_SUPERUSER_USERNAME=$DJANGO_USER
             DJANGO_SUPERUSER_EMAIL=$DJANGO_EMAIL
+            DJANGO_SECRET_KEY=$DJANGO_KEY
             EOF
 
             # 3. Pull images using the version variable
