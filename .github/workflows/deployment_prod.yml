@@ -66,9 +66,9 @@ jobs:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASS }}
-          DJANGO_USER: ${{ DJANGO_USER }}
-          DJANGO_PASS: ${{ DJANGO_PASS }}
-          DJANGO_EMAIL: ${{ DJANGO_EMAIL }}
+          DJANGO_USER: ${{ secrets.DJANGO_USER }}
+          DJANGO_PASS: ${{ secrets.DJANGO_PASS }}
+          DJANGO_EMAIL: ${{ secrets.DJANGO_EMAIL }}
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.SSH_USER }}
