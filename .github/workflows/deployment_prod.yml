@@ -65,7 +65,7 @@ jobs:
           USERNAME: ${{ github.actor }}
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASS }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           DJANGO_USER: ${{ secrets.DJANGO_USER }}
           DJANGO_PASS: ${{ secrets.DJANGO_PASS }}
           DJANGO_EMAIL: ${{ secrets.DJANGO_EMAIL }}
