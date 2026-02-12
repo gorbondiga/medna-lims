@@ -5,7 +5,7 @@ services:
  # ----------------------------------------
   medna_metadata_web:
     restart: always
-    image: ghcr.io/${USER}/${REPO_NAME}:${APP_VERSION:-latest}
+    image: ghcr.io/${USERNAME}/${REPO_NAME}:${APP_VERSION:-latest}
     container_name: medna_metadata_web
     ports:
       - 8000:8000

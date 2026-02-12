@@ -82,6 +82,12 @@ jobs:
             # 2. Navigate to deployment directory
             cd ${{ secrets.SERVER_PATH }}/docker
 
+            cat <<EOF > .env
+            USERNAME=$USERNAME
+            REPO_NAME=$REPO_NAME
+            APP_VERSION=$APP_VERSION
+            EOF
+
             cat <<EOF > django.env
             DJANGO_DATABASE_HOST=medna_metadata_pgdb
             DJANGO_DATABASE_PORT=5432
