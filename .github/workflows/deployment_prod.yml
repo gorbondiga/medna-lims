@@ -36,6 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
+          file: ./docker/web/Dockerfile
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
@@ -45,13 +46,55 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy via SSH
-        uses: masterjanic/docker-compose-ssh-deployment@v1.2
+
+      - name: Copy Compose Files to Server
+        uses: appleboy/scp-action@v1.0.0
         with:
-          ssh_host: ${{ secrets.REMOTE_HOST }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh_user: ${{ secrets.SSH_USER }}
-          pull: true
-          no_cache: true
-          docker_compose_down: true
-          args: APP_VERSION=${{ github.ref_name }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./docker/"
+          target: "${{ secrets.SERVER_PATH }}"
+
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.2.5
+        env:
+          APP_VERSION: ${{ github.ref_name }}
+          APPTOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          USERNAME: ${{ github.actor }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASS }}
+          DJANGO_USER: ${{ DJANGO_USER }}
+          DJANGO_PASS: ${{ DJANGO_PASS }}
+          DJANGO_EMAIL: ${{ DJANGO_EMAIL }}
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          envs: APP_VERSION,APPTOKEN,REPO_NAME,USERNAME,POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB,DJANGO_USER,DJANGO_PASS,DJANGO_EMAIL
+          script: |
+            # 1. Login to GHCR
+            echo $APPTOKEN | docker login ghcr.io -u $USERNAME --password-stdin
+
+            # 2. Navigate to deployment directory
+            cd ${{ secrets.SERVER_PATH }}/docker
+
+            cat <<EOF > django.env
+            DJANGO_DATABASE_HOST=medna_metadata_pgdb
+            DJANGO_DATABASE_PORT=5432
+            DJANGO_DATABASE_NAME=$POSTGRES_DB
+            DJANGO_DATABASE_USERNAME=$POSTGRES_USER
+            DJANGO_DATABASE_PASSWORD=$POSTGRES_PASSWORD
+            DJANGO_SUPERUSER_PASSWORD=$DJANGO_PASS
+            DJANGO_SUPERUSER_USERNAME=$DJANGO_USER
+            DJANGO_SUPERUSER_EMAIL=$DJANGO_EMAIL
+
+
+            # 3. Pull images using the version variable
+            docker compose -f docker-compose.yml pull
+
+            # 4. Start the rest of the app
+            docker compose -f docker-compose.yml up -d
