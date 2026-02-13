@@ -9,6 +9,12 @@ from .models import EnvMeasureType, FieldSurvey, FieldCrew, EnvMeasure, \
 from import_export.admin import ImportExportActionModelAdmin, ExportActionMixin
 
 
+try:
+    GeoAdminBase = admin.OSMGeoAdmin
+except AttributeError:  # Django 5.x+: OSMGeoAdmin removed
+    GeoAdminBase = admin.GISModelAdmin
+
+
 # Register your models here.
 class ProjectInline(admin.TabularInline):
     # https://docs.djangoproject.com/en/4.0/ref/contrib/admin/#working-with-many-to-many-intermediary-models
@@ -17,7 +23,7 @@ class ProjectInline(admin.TabularInline):
     # extra = 1
 
 
-class FieldSurveyAdmin(ExportActionMixin, admin.OSMGeoAdmin):
+class FieldSurveyAdmin(ExportActionMixin, GeoAdminBase):
     # below are import_export configs
     # SampleMaterialAdminResource
     resource_class = FieldSurveyAdminResource

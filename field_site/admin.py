@@ -16,6 +16,12 @@ from .resources import EnvoBiomeFirstAdminResource, EnvoBiomeSecondAdminResource
     GeoWatershedAdminResource, GeoFieldSiteAdminResource, GeoWorldBorderAdminResource
 
 
+try:
+    GeoAdminBase = admin.OSMGeoAdmin
+except AttributeError:  # Django 5.x+: OSMGeoAdmin removed
+    GeoAdminBase = admin.GISModelAdmin
+
+
 class EnvoBiomeFirstAdmin(ImportExportActionModelAdmin):
     # below are import_export configs
     resource_class = EnvoBiomeFirstAdminResource
@@ -533,7 +539,7 @@ class SystemAdmin(ImportExportActionModelAdmin):
 admin.site.register(System, SystemAdmin)
 
 
-class GeoWatershedAdmin(ExportActionMixin, admin.OSMGeoAdmin):
+class GeoWatershedAdmin(ExportActionMixin, GeoAdminBase):
     # import_export configs
     resource_class = GeoWatershedAdminResource
     # changes the order of how the tables are displayed and specifies what to display
@@ -568,7 +574,7 @@ class GeoWatershedAdmin(ExportActionMixin, admin.OSMGeoAdmin):
 admin.site.register(Watershed, GeoWatershedAdmin)
 
 
-class GeoWorldBorderAdmin(ExportActionMixin, admin.OSMGeoAdmin):
+class GeoWorldBorderAdmin(ExportActionMixin, GeoAdminBase):
     # import_export configs
     resource_class = GeoWorldBorderAdminResource
     # changes the order of how the tables are displayed and specifies what to display
@@ -599,7 +605,7 @@ class ProjectInline(admin.TabularInline):
     # extra = 1
 
 
-class GeoFieldSiteAdmin(ExportActionMixin, admin.OSMGeoAdmin):
+class GeoFieldSiteAdmin(ExportActionMixin, GeoAdminBase):
     # import_export configs - export ONLY
     resource_class = GeoFieldSiteAdminResource
     # changes the order of how the tables are displayed and specifies what to display

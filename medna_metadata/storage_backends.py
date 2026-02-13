@@ -1,6 +1,23 @@
 from django.conf import settings
 from storages.backends.s3boto3 import S3Boto3Storage
-from django.core.files.storage import get_storage_class
+
+try:
+    from django.core.files.storage import get_storage_class as _get_storage_class
+
+    def _get_storage_instance(path_or_alias):
+        storage_class = _get_storage_class(path_or_alias)
+        return storage_class()
+
+except ImportError:  # Django 5.x+: get_storage_class removed
+    from django.core.files.storage import storages, InvalidStorageError
+    from django.utils.module_loading import import_string
+
+    def _get_storage_instance(path_or_alias):
+        try:
+            return storages[path_or_alias]
+        except InvalidStorageError:
+            pass
+        return import_string(path_or_alias)()
 
 
 class StaticStorage(S3Boto3Storage):
@@ -38,15 +55,12 @@ class PrivateBackupStorage(S3Boto3Storage):
 
 # https://stackoverflow.com/questions/59437637/django-use-private-s3-storage-only-in-production-environment
 def select_private_media_storage():
-    private_storage_class = get_storage_class(settings.PRIVATE_FILE_STORAGE)
-    return private_storage_class()  # instantiate the storage
+    return _get_storage_instance(settings.PRIVATE_FILE_STORAGE)
 
 
 def select_private_sequencing_storage():
-    private_storage_class = get_storage_class(settings.PRIVATE_SEQUENCING_FILE_STORAGE)
-    return private_storage_class()  # instantiate the storage
+    return _get_storage_instance(settings.PRIVATE_SEQUENCING_FILE_STORAGE)
 
 
 def select_public_media_storage():
-    public_storage_class = get_storage_class(settings.DEFAULT_FILE_STORAGE)
-    return public_storage_class()
+    return _get_storage_instance(settings.DEFAULT_FILE_STORAGE)

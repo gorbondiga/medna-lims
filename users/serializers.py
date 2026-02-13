@@ -13,15 +13,16 @@ from utility.serializers import CreatedBySlugRelatedField
 # from phonenumber_field.modelfields import PhoneNumberField
 try:
     from allauth.account import app_settings as allauth_settings
-    from allauth.utils import (email_address_exists,
-                               get_username_max_length)
+    from allauth.account.models import EmailAddress
     from allauth.account.adapter import get_adapter
     from allauth.account.utils import setup_user_email
     from allauth.socialaccount.helpers import complete_social_login
     from allauth.socialaccount.models import SocialAccount
     from allauth.socialaccount.providers.base import AuthProcess
-except ImportError:
-    raise ImportError('allauth needs to be added to INSTALLED_APPS.')
+except ImportError as exc:
+    raise ImportError(
+        f'Failed to import django-allauth: {exc}. Ensure it is installed and listed in INSTALLED_APPS.'
+    ) from exc
 
 
 # django rest_framework
@@ -85,7 +86,7 @@ class CustomAutoPasswordRegisterSerializer(RegisterSerializer):
     def validate_email(self, email):
         email = get_adapter().clean_email(email)
         if allauth_settings.UNIQUE_EMAIL:
-            if email and email_address_exists(email):
+            if email and EmailAddress.objects.filter(email__iexact=email).exists():
                 raise serializers.ValidationError(
                     _('A user is already registered with this e-mail address.'))
         return email
