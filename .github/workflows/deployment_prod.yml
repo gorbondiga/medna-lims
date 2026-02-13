@@ -55,6 +55,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "./docker/"
           target: "${{ secrets.SERVER_PATH }}"
+          rm: false
+          exclude: "certbot/"
 
       - name: Deploy
         uses: appleboy/ssh-action@v1.2.5
