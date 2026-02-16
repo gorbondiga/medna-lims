@@ -336,9 +336,16 @@ class Command(BaseCommand):
                     # Generate permission name as Django would generate it
                     name = 'Can {} {}'.format(permission_name, app_model)
                     print('Creating {}'.format(name))
-                    try:
-                        model_add_perm = Permission.objects.get(name=name)
-                    except Permission.DoesNotExist:
+                    perm_qs = Permission.objects.filter(name=name).order_by('id')
+                    model_add_perm = perm_qs.first()
+                    if not model_add_perm:
                         logging.warning('Permission not found with name "{}".'.format(name))
                         continue
+                    if perm_qs.count() > 1:
+                        logging.warning(
+                            'Multiple permissions found with name "{}"; using id {}.'.format(
+                                name,
+                                model_add_perm.id,
+                            )
+                        )
                     new_group.permissions.add(model_add_perm)
