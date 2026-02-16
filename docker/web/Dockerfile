@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y \
     libgdal-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN curl -LsSf https://astral.sh/uv/install.sh | UV_INSTALL_DIR=/usr/local/bin sh
+
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 
@@ -33,22 +35,27 @@ RUN useradd -m django
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
+RUN install -d -o django -g django $APP_HOME
+
+ARG ENV_GROUP=prod
+ENV UV_PROJECT_ENVIRONMENT=/opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
 # --------------------
 # Python deps
 # --------------------
-COPY docker/web/requirements/ $APP_HOME/requirements/
-RUN pip install --upgrade pip "setuptools<65" wheel \
- && pip install --no-cache --no-build-isolation -r requirements/prod.txt
+COPY --chown=django:django pyproject.toml uv.lock $APP_HOME/
+RUN uv sync --group $ENV_GROUP --frozen
 
 # --------------------
 # App code
 # --------------------
-COPY ./. $APP_HOME/
+COPY --chown=django:django ./. $APP_HOME/
 
 # --------------------
 # Entrypoints
 # -------
-COPY docker/web/webdev_start.sh /usr/local/bin/web_start.sh
+COPY --chown=django:django docker/web/webdev_start.sh /usr/local/bin/web_start.sh
 #COPY docker/web/webdev_start.sh /usr/local/bin/webdev_start.sh
 
 RUN sed -i 's/\r$//g' /usr/local/bin/*.sh \
@@ -57,9 +64,7 @@ RUN sed -i 's/\r$//g' /usr/local/bin/*.sh \
 ## --------------------
 ## Celery dirs
 ## --------------------
-RUN mkdir -p /var/run/celery /var/log/celery \
- && chown -R django:django /var/run/celery /var/log/celery \
- && chown -R django:django /home/django
+RUN install -d -o django -g django /var/run/celery /var/log/celery
 
 USER django
 

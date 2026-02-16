@@ -1,0 +1,41 @@
+[project]
+name = "medna-lims"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "boto3==1.42.48",
+    "celery==5.6.2",
+    "dj-rest-auth==7.0.2",
+    "django==5.2.11",
+    "django-allauth==65.14.2",
+    "django-cors-headers==4.9.0",
+    "django-dbbackup==5.2.0",
+    "django-extensions==4.1",
+    "django-filter==25.2",
+    "django-import-export==4.4.0",
+    "django-leaflet==0.33.0",
+    "django-phonenumber-field[phonenumberslite]==8.4.0",
+    "django-storages==1.14.6",
+    "django-tables2==2.8.0",
+    "djangorestframework==3.16.1",
+    "djangorestframework-csv==3.0.2",
+    "djangorestframework-gis==1.2.0",
+    "drf-yasg==1.21.14",
+    "numpy==2.4.2",
+    "pandas==3.0.0",
+    "psycopg2==2.9.11",
+    "python-dotenv==1.2.1",
+    "requests==2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar==4.4.6",
+    "pytest==8.3.5",
+    "ruff==0.9.7",
+]
+prod = [
+    "gunicorn==25.1.0",
+]
