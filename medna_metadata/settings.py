@@ -38,9 +38,9 @@ DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'True'
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='localhost [::1]').split(' ')
 ALLOWED_HOSTS = ['*']
 
-# CSRF_TRUSTED_ORIGINS = [
-    # 'http://gorkadev.htx-web.embl.fr',
-# ]
+CSRF_TRUSTED_ORIGINS = [
+         'https://limsedna.duckdns.org',
+ ]
 
 # settings.py
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
