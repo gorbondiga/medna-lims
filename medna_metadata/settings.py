@@ -30,6 +30,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # django\conf\global_settings.py
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', default=get_random_secret_key())
 
+# STATIC_URL = os.environ.get('DJANGO_STATIC_URL', '/static/')
+# STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
+
 # SECURITY WARNING: don't run with debug turned on in production!
 # django\conf\global_settings.py
 DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'True'

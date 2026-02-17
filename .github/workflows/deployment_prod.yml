@@ -107,4 +107,4 @@ jobs:
             docker compose -f docker-compose.yml pull
 
             # 4. Start the rest of the app
-            docker compose -f docker-compose.yml up -d
+            docker compose -f docker-compose.prod.yml up -d

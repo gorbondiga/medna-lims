@@ -71,8 +71,11 @@
     ```
 
 3. Start the application:
+
+    Remember that for the No Serverless, No SSL installation docker-compose.dev.yml is used.
+
     ```
-    docker-compose up -d
+    docker compose -f docker-compose.dev.yml up -d
     ```
 
 4. Access the application at `http://localhost:8000` (or your configured port).
