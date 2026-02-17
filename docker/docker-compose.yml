@@ -98,7 +98,6 @@ services:
       - 'static_volume:/home/django/medna-metadata/static/'
       - 'media_volume:/home/django/medna-metadata/media/'
       - './nginx/default.conf:/etc/nginx/conf.d/default.conf'
-      - '/var/run/docker.sock:/tmp/docker.sock:ro'
       # Shared volumes for SSL certificates and verification
       - ./certbot/conf/:/etc/letsencrypt:ro
       - ./certbot/www:/var/www/certbot:ro
@@ -114,6 +113,7 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
+      - ./certbot/lib/:/var/lib/letsencrypt:rw
     # This entrypoint checks for renewal every 12 hours
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
