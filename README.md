@@ -67,7 +67,6 @@
     DJANGO_DATABASE_FLUSH=on
     DJANGO_SUPERUSER_CREATE=on
     DJANGO_DEFAULT_GROUPS_CREATE=on
-    DJANGO_DEFAULT_USERS_CREATE=on
     ```
 
 3. Start the application:
@@ -84,7 +83,8 @@
 
 ## 3. Additional Notes
 
-- For production, review `CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']` as the name of the host should be added to the list, if it is https or http should be defined.
+- For production, `DJANGO_CSRF_TRUSTED_ORIGINS = ['http(s)://domain name']` must be set in the medna.env file.
+- For http, development deployment, make sure `DJANGO_CSRF_TRUSTED_ORIGINS` and `DJANGO_CORS_ALLOWED_ORIGINS` are not set.
 - For custom deployments (e.g., with serverless or cloud), refer to the [Read the Docs](https://medna-metadata.readthedocs.io/en/latest/).
 
 
