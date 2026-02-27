@@ -41,10 +41,6 @@ DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'True'
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='localhost [::1]').split(' ')
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = [
-         'https://limsedna.duckdns.org',
- ]
-
 # settings.py
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
@@ -201,6 +197,7 @@ WSGI_APPLICATION = 'medna_metadata.wsgi.application'
 # MIDDLEWARE                           #
 ########################################
 
+
 #  You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE,
 #  but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes
 #  it more difficult for network traffic sniffers to steal the CSRF token.
@@ -215,13 +212,22 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-#    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'utility.middleware.AccountExpiry',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+if os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', default=None):
+    CSRF_TRUSTED_ORIGINS = os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', default=None).split(' ')
+    MIDDLEWARE.insert(2, 'django.middleware.csrf.CsrfViewMiddleware')
+
+if os.environ.get('DJANGO_CORS_ALLOWED_ORIGINS', default=None):
+    CORS_ALLOWED_ORIGINS = os.environ.get('DJANGO_CORS_ALLOWED_ORIGINS', default=None).split(' ')
+    MIDDLEWARE.insert(1, 'corsheaders.middleware.CorsMiddleware')
 
 #########
 # CACHE #
@@ -357,17 +363,12 @@ FIXTURE_DIRS = [os.path.join(BASE_DIR, 'fixtures', 'dev'), ]
 
 # https://github.com/adamchainz/django-cors-headers#configuration
 # If True, all origins will be accepted (not use the whitelist below). Defaults to False.
-CORS_ORIGIN_ALLOW_ALL = False
 # django-cors-headers to open up the backend to connect to the frontend
 # List of origins that are authorized to make cross-site HTTP requests. Defaults to [].
 # https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
 # django-cors-headers is a Python library that will prevent the errors that you would normally get due to CORS rules.
 # In the CORS_ORIGIN_WHITELIST code, you whitelisted localhost:3000 because you want the frontend
 # (which will be served on that port) of the application to interact with the API.
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
-    'http://gorkadev.htx-web.embl.fr:8000'
-]
 
 # CORS_ALLOWED_ORIGIN_REGEXES = [
 #     r"^https://\w+\.example\.com$",
