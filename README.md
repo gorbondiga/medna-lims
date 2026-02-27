@@ -20,7 +20,7 @@
 
     **A. Using git sparse-checkout (recommended):**
     ```
-    git clone --filter=blob:none --no-checkout https://github.com/your-org/medna-lims.git
+    git clone --filter=blob:none --no-checkout https://github.com/gorbondiga/medna-lims.git
     cd medna-lims
     git sparse-checkout init --cone
     git sparse-checkout set docker
